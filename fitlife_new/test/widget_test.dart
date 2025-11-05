@@ -44,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Text(
           '$_counter',
-          style: Theme.of(context).textTheme.headline4,
+          style: Theme.of(context).textTheme.headlineMedium,
         ),
       ),
       floatingActionButton: FloatingActionButton(

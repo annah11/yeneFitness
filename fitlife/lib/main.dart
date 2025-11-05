@@ -29,7 +29,8 @@ class FitLifeApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             title: 'FitLife',
             theme: ThemeData(
-              colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFFFB6F92)),
+              colorScheme:
+                  ColorScheme.fromSeed(seedColor: const Color(0xFFFB6F92)),
               useMaterial3: true,
               textTheme: GoogleFonts.poppinsTextTheme(),
               scaffoldBackgroundColor: Colors.white,
@@ -41,7 +42,9 @@ class FitLifeApp extends StatelessWidget {
               ),
             ),
             darkTheme: ThemeData(
-              colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFFFB6F92), brightness: Brightness.dark),
+              colorScheme: ColorScheme.fromSeed(
+                  seedColor: const Color(0xFFFB6F92),
+                  brightness: Brightness.dark),
               useMaterial3: true,
               textTheme: GoogleFonts.poppinsTextTheme(),
             ),

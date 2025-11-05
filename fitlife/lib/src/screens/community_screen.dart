@@ -32,7 +32,9 @@ class _CommunityScreenState extends State<CommunityScreen> {
                 children: [
                   Text('${p['likes']}'),
                   const SizedBox(width: 8),
-                  IconButton(onPressed: () => setState(() => p['likes']++), icon: const Icon(Icons.thumb_up)),
+                  IconButton(
+                      onPressed: () => setState(() => p['likes']++),
+                      icon: const Icon(Icons.thumb_up)),
                 ],
               ),
             ),
@@ -45,8 +47,13 @@ class _CommunityScreenState extends State<CommunityScreen> {
             context: context,
             builder: (_) => AlertDialog(
               title: const Text('New Post'),
-              content: const TextField(decoration: InputDecoration(hintText: 'Share something...')),
-              actions: [TextButton(onPressed: () => Navigator.pop(context), child: const Text('Close'))],
+              content: const TextField(
+                  decoration: InputDecoration(hintText: 'Share something...')),
+              actions: [
+                TextButton(
+                    onPressed: () => Navigator.pop(context),
+                    child: const Text('Close'))
+              ],
             ),
           );
         },

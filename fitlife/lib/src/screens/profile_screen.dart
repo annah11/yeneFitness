@@ -17,24 +17,33 @@ class ProfileScreen extends StatelessWidget {
           children: [
             CircleAvatar(radius: 48, child: const Icon(Icons.person, size: 48)),
             const SizedBox(height: 12),
-            const Text('Hana', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+            const Text('Hana',
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
             const SizedBox(height: 12),
             Card(
               child: Padding(
                 padding: const EdgeInsets.all(12),
                 child: Column(children: [
-                  Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [Text('Height'), Text('170 cm')]),
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [Text('Height'), Text('170 cm')]),
                   const SizedBox(height: 8),
-                  Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [Text('Weight'), Text('62 kg')]),
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [Text('Weight'), Text('62 kg')]),
                   const SizedBox(height: 8),
-                  Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [Text('Goals'), Text('Lose weight')]),
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [Text('Goals'), Text('Lose weight')]),
                 ]),
               ),
             ),
             const SizedBox(height: 12),
             ListTile(
               title: const Text('Theme'),
-              trailing: Switch(value: state.isDarkMode, onChanged: (_) => state.toggleTheme()),
+              trailing: Switch(
+                  value: state.isDarkMode,
+                  onChanged: (_) => state.toggleTheme()),
             )
           ],
         ),

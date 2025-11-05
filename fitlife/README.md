@@ -10,4 +10,4 @@ How to run:
    flutter run
 
 To build an APK:
-   flutter build apk --release
+flutter build apk --release

@@ -204,14 +204,21 @@ class HomeContent extends StatelessWidget {
             ),
             const SizedBox(height: 18),
             // Gallery section: large grid tiles, responsive
-            Text('Gallery', style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold)),
+            Text('Gallery',
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium
+                    ?.copyWith(fontWeight: FontWeight.bold)),
             const SizedBox(height: 8),
             Card(
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16)),
               child: Padding(
                 padding: const EdgeInsets.all(8),
                 child: LayoutBuilder(builder: (context, constraints) {
-                  final crossAxisCount = constraints.maxWidth > 800 ? 3 : (constraints.maxWidth > 480 ? 2 : 1);
+                  final crossAxisCount = constraints.maxWidth > 800
+                      ? 3
+                      : (constraints.maxWidth > 480 ? 2 : 1);
                   return GridView.count(
                     shrinkWrap: true,
                     crossAxisCount: crossAxisCount,
@@ -220,10 +227,13 @@ class HomeContent extends StatelessWidget {
                     physics: const NeverScrollableScrollPhysics(),
                     childAspectRatio: 16 / 10,
                     children: gallery.map((path) {
-                      final isVideo = path.toLowerCase().endsWith('.mp4') || path.toLowerCase().endsWith('.mov');
+                      final isVideo = path.toLowerCase().endsWith('.mp4') ||
+                          path.toLowerCase().endsWith('.mov');
                       return GestureDetector(
                         onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(builder: (_) => ImageViewerScreen(path: path, isVideo: isVideo)));
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (_) => ImageViewerScreen(
+                                  path: path, isVideo: isVideo)));
                         },
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(12),
@@ -232,13 +242,23 @@ class HomeContent extends StatelessWidget {
                             children: [
                               if (isVideo)
                                 // video thumbnail placeholder
-                                Container(color: Colors.grey[200], child: const Center(child: Icon(Icons.videocam, size: 48)))
+                                Container(
+                                    color: Colors.grey[200],
+                                    child: const Center(
+                                        child: Icon(Icons.videocam, size: 48)))
                               else
-                                Image.asset(path, fit: BoxFit.cover, errorBuilder: (c, e, s) => Container(color: Colors.grey[200], child: const Center(child: Icon(Icons.broken_image)))),
+                                Image.asset(path,
+                                    fit: BoxFit.cover,
+                                    errorBuilder: (c, e, s) => Container(
+                                        color: Colors.grey[200],
+                                        child: const Center(
+                                            child: Icon(Icons.broken_image)))),
                               if (isVideo)
                                 Container(
                                   color: Colors.black26,
-                                  child: const Center(child: Icon(Icons.play_circle_fill, size: 56, color: Colors.white)),
+                                  child: const Center(
+                                      child: Icon(Icons.play_circle_fill,
+                                          size: 56, color: Colors.white)),
                                 ),
                             ],
                           ),
@@ -260,7 +280,8 @@ class HomeContent extends StatelessWidget {
 class ImageViewerScreen extends StatefulWidget {
   final String path;
   final bool isVideo;
-  const ImageViewerScreen({Key? key, required this.path, this.isVideo = false}) : super(key: key);
+  const ImageViewerScreen({Key? key, required this.path, this.isVideo = false})
+      : super(key: key);
 
   @override
   State<ImageViewerScreen> createState() => _ImageViewerScreenState();
@@ -316,10 +337,18 @@ class _ImageViewerScreenState extends State<ImageViewerScreen> {
       body: Center(
         child: widget.isVideo
             ? _initialized && _controller != null
-                ? AspectRatio(aspectRatio: _controller!.value.aspectRatio, child: VideoPlayer(_controller!))
+                ? AspectRatio(
+                    aspectRatio: _controller!.value.aspectRatio,
+                    child: VideoPlayer(_controller!))
                 : const CircularProgressIndicator()
             : InteractiveViewer(
-                child: Image.asset(widget.path, fit: BoxFit.contain, errorBuilder: (c, e, s) => Container(color: Colors.grey[900], child: const Center(child: Icon(Icons.broken_image, color: Colors.white)))),
+                child: Image.asset(widget.path,
+                    fit: BoxFit.contain,
+                    errorBuilder: (c, e, s) => Container(
+                        color: Colors.grey[900],
+                        child: const Center(
+                            child: Icon(Icons.broken_image,
+                                color: Colors.white)))),
               ),
       ),
       floatingActionButton: widget.isVideo && _controller != null
@@ -333,7 +362,9 @@ class _ImageViewerScreenState extends State<ImageViewerScreen> {
                   }
                 });
               },
-              child: Icon(_controller!.value.isPlaying ? Icons.pause : Icons.play_arrow),
+              child: Icon(_controller!.value.isPlaying
+                  ? Icons.pause
+                  : Icons.play_arrow),
             )
           : null,
     );

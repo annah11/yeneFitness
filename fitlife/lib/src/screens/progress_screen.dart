@@ -21,13 +21,15 @@ class ProgressScreen extends StatelessWidget {
         child: Column(
           children: [
             Card(
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12)),
               child: Padding(
                 padding: const EdgeInsets.all(12),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('Weekly Activity', style: TextStyle(fontWeight: FontWeight.bold)),
+                    const Text('Weekly Activity',
+                        style: TextStyle(fontWeight: FontWeight.bold)),
                     const SizedBox(height: 12),
                     SizedBox(
                       height: 180,
@@ -49,7 +51,17 @@ class ProgressScreen extends StatelessWidget {
                                 ),
                               ),
                               const SizedBox(height: 8),
-                              Text(['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'][i], style: const TextStyle(fontSize: 12)),
+                              Text(
+                                  [
+                                    'Mon',
+                                    'Tue',
+                                    'Wed',
+                                    'Thu',
+                                    'Fri',
+                                    'Sat',
+                                    'Sun'
+                                  ][i],
+                                  style: const TextStyle(fontSize: 12)),
                             ],
                           );
                         }),
@@ -61,19 +73,22 @@ class ProgressScreen extends StatelessWidget {
             ),
             const SizedBox(height: 12),
             Card(
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12)),
               child: Padding(
                 padding: const EdgeInsets.all(12),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('Streak', style: TextStyle(fontWeight: FontWeight.bold)),
+                    const Text('Streak',
+                        style: TextStyle(fontWeight: FontWeight.bold)),
                     const SizedBox(height: 8),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text('${state.streak} days'),
-                        ElevatedButton(onPressed: () {}, child: const Text('View Badges')),
+                        ElevatedButton(
+                            onPressed: () {}, child: const Text('View Badges')),
                       ],
                     )
                   ],

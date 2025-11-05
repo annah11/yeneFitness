@@ -33,7 +33,8 @@ class _SplashScreenState extends State<SplashScreen> {
             children: const [
               Icon(Icons.fitness_center, size: 88, color: Colors.white),
               SizedBox(height: 16),
-              Text('FitLife', style: TextStyle(fontSize: 34, color: Colors.white)),
+              Text('FitLife',
+                  style: TextStyle(fontSize: 34, color: Colors.white)),
             ],
           ),
         ),

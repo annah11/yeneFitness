@@ -17,16 +17,24 @@ class WorkoutsScreen extends StatelessWidget {
           for (final cat in ['Cardio', 'Strength', 'Yoga', 'Stretching']) ...[
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8),
-              child: Text(cat, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              child: Text(cat,
+                  style: const TextStyle(
+                      fontSize: 18, fontWeight: FontWeight.bold)),
             ),
             ...state.workouts.where((w) => w.category == cat).map((w) => Card(
                   child: ListTile(
-                    leading: SizedBox(width: 56, child: Image.asset(w.asset, fit: BoxFit.cover)),
+                    leading: SizedBox(
+                        width: 56,
+                        child: Image.asset(w.asset, fit: BoxFit.cover)),
                     title: Text(w.title),
-                    subtitle: Text('${w.durationMinutes} min • ${w.difficulty}'),
+                    subtitle:
+                        Text('${w.durationMinutes} min • ${w.difficulty}'),
                     trailing: w.completed
                         ? const Icon(Icons.check_circle, color: Colors.green)
-                        : ElevatedButton(onPressed: () => state.completeWorkout(w.id, w.calories), child: const Text('Done')),
+                        : ElevatedButton(
+                            onPressed: () =>
+                                state.completeWorkout(w.id, w.calories),
+                            child: const Text('Done')),
                   ),
                 ))
           ]
